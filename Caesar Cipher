@@ -1,0 +1,108 @@
+# 🔐 Caesar Cipher in Java
+
+## 📌 Overview
+
+The Caesar Cipher is one of the simplest and oldest encryption techniques. It works by shifting each letter in the plaintext by a fixed number of positions in the alphabet.
+
+---
+
+## 🔑 How It Works
+
+* Each letter is shifted by a fixed number (called **shift key**)
+* Alphabet wraps around using modulo (26 letters)
+
+---
+
+## 🔢 Example
+
+Plain Text: HELLO
+Shift: 3
+
+Encryption:
+H → K
+E → H
+L → O
+L → O
+O → R
+
+Encrypted Text: **KHOOR**
+
+---
+
+## 🔒 Encryption Code (Java)
+
+```java
+public static String caesarEncrypt(String text, int shift) {
+    StringBuilder result = new StringBuilder();
+
+    for (char c : text.toCharArray()) {
+        if (Character.isLetter(c)) {
+            char base = Character.isUpperCase(c) ? 'A' : 'a';
+            result.append((char) ((c - base + shift) % 26 + base));
+        } else {
+            result.append(c);
+        }
+    }
+    return result.toString();
+}
+```
+
+---
+
+## 🔓 Decryption Code (Java)
+
+```java
+public static String caesarDecrypt(String text, int shift) {
+    return caesarEncrypt(text, 26 - shift);
+}
+```
+
+---
+
+## ⚙️ Key Points
+
+* Uses **modulo 26** for wrapping around alphabet
+* Works for both uppercase and lowercase letters
+* Non-alphabet characters remain unchanged
+
+---
+
+## 🎯 Advantages
+
+* Easy to implement
+* Good for learning cryptography basics
+
+---
+
+## ⚠️ Limitations
+
+* Not secure (can be broken easily)
+* Only supports simple substitution
+
+---
+
+## 🚀 Usage Example
+
+```java
+public static void main(String[] args) {
+    String text = "HELLO";
+    int shift = 3;
+
+    String encrypted = caesarEncrypt(text, shift);
+    String decrypted = caesarDecrypt(encrypted, shift);
+
+    System.out.println("Encrypted: " + encrypted);
+    System.out.println("Decrypted: " + decrypted);
+}
+```
+
+---
+
+## 📌 Output
+
+```
+Encrypted: KHOOR
+Decrypted: HELLO
+```
+
+---
