@@ -109,16 +109,4 @@ Decrypted: HELLO
 
 * Understanding of encryption and decryption techniques
 * Implementation of classical cryptographic algorithms
-* Hands-on practice with Java programming
-
----
-
-## ⚠️ Note
-
-These ciphers are for educational purposes only and are not secure for real-world applications.
-
----
-
-## 👩‍💻 Author
-
-Your Name
+* Hands-on practice with Java programming.
