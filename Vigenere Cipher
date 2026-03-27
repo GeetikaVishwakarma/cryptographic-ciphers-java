@@ -1,0 +1,134 @@
+# 🔐 Vigenère Cipher in Java
+
+## 📌 Overview
+
+The Vigenère Cipher is a classical encryption technique that uses a **keyword** to encrypt text. Unlike the Caesar Cipher, it applies different shifts to each letter, making it more secure.
+
+---
+
+## 🔑 How It Works
+
+* A **key (word)** is used for encryption
+* Each letter in the key determines the shift value
+* The key is repeated to match the length of the text
+
+---
+
+## 🔢 Example
+
+Plain Text: HELLO
+Key: KEY
+
+Repeat Key: KEYKE
+
+Encryption:
+H + K → R
+E + E → I
+L + Y → J
+L + K → V
+O + E → S
+
+Encrypted Text: **RIJVS**
+
+---
+
+## 🔒 Encryption Code (Java)
+
+```java id="vigenc"
+public static String vigenereEncrypt(String text, String key) {
+    StringBuilder result = new StringBuilder();
+    key = key.toLowerCase();
+    int j = 0;
+
+    for (int i = 0; i < text.length(); i++) {
+        char c = text.charAt(i);
+
+        if (Character.isLetter(c)) {
+            int shift = key.charAt(j % key.length()) - 'a';
+            char base = Character.isUpperCase(c) ? 'A' : 'a';
+            result.append((char) ((c - base + shift) % 26 + base));
+            j++;
+        } else {
+            result.append(c);
+        }
+    }
+    return result.toString();
+}
+```
+
+---
+
+## 🔓 Decryption Code (Java)
+
+```java id="vigdec"
+public static String vigenereDecrypt(String text, String key) {
+    StringBuilder result = new StringBuilder();
+    key = key.toLowerCase();
+    int j = 0;
+
+    for (int i = 0; i < text.length(); i++) {
+        char c = text.charAt(i);
+
+        if (Character.isLetter(c)) {
+            int shift = key.charAt(j % key.length()) - 'a';
+            char base = Character.isUpperCase(c) ? 'A' : 'a';
+            result.append((char) ((c - base - shift + 26) % 26 + base));
+            j++;
+        } else {
+            result.append(c);
+        }
+    }
+    return result.toString();
+}
+```
+
+---
+
+## ⚙️ Key Points
+
+* Uses a **keyword instead of fixed shift**
+* More secure than Caesar Cipher
+* Repeats key to match text length
+* Uses modulo 26 for alphabet wrapping
+
+---
+
+## 🎯 Advantages
+
+* Stronger than simple substitution ciphers
+* Harder to break than Caesar Cipher
+
+---
+
+## ⚠️ Limitations
+
+* Still vulnerable to frequency analysis
+* Security depends on key length
+
+---
+
+## 🚀 Usage Example
+
+```java id="viguse"
+public static void main(String[] args) {
+    String text = "HELLO";
+    String key = "KEY";
+
+    String encrypted = vigenereEncrypt(text, key);
+    String decrypted = vigenereDecrypt(encrypted, key);
+
+    System.out.println("Encrypted: " + encrypted);
+    System.out.println("Decrypted: " + decrypted);
+}
+```
+
+---
+
+## 📌 Output
+
+```id="vigout"
+Encrypted: RIJVS
+Decrypted: HELLO
+```
+
+---
