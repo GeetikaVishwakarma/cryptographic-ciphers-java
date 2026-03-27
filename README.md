@@ -1,19 +1,24 @@
 # 🔐 Cryptographic Ciphers in Java
 
-## 📌 Project Description
+## 📌 Project Overview
 
-This project is a Java-based application that implements classical cryptographic techniques to encrypt and decrypt text.
+This project is a Java-based application that demonstrates classical cryptographic techniques for encrypting and decrypting text.
 
-It includes Caesar Cipher, Vigenere Cipher, and Rail Fence Cipher using a menu-driven approach.
+It includes:
+
+* Caesar Cipher
+* Vigenère Cipher
+
+The program is menu-driven and allows users to choose different encryption methods interactively.
 
 ---
 
 ## 🚀 Features
 
 * Caesar Cipher (Encryption & Decryption)
-* Vigenere Cipher (Encryption & Decryption)
-* Rail Fence Cipher (Encryption)
+* Vigenère Cipher (Encryption & Decryption)
 * Menu-driven interface
+* Handles uppercase and lowercase letters
 
 ---
 
@@ -21,19 +26,19 @@ It includes Caesar Cipher, Vigenere Cipher, and Rail Fence Cipher using a menu-d
 
 * Java
 * Object-Oriented Programming
-* Scanner Class
+* Scanner Class (for user input)
 
 ---
 
 ## ▶️ How to Run
 
-1. Compile:
+1. Compile the program:
 
    ```
    javac Main.java
    ```
 
-2. Run:
+2. Run the program:
 
    ```
    java Main
@@ -43,7 +48,7 @@ It includes Caesar Cipher, Vigenere Cipher, and Rail Fence Cipher using a menu-d
 
 ## 📂 Project Structure
 
-```id="struct1"
+```id="struct2"
 Cryptographic-Ciphers-Java/
 │
 ├── Main.java
@@ -52,18 +57,48 @@ Cryptographic-Ciphers-Java/
 
 ---
 
-## 💡 Example
+## 🔑 Caesar Cipher
 
-Input:
+### 📌 Description
 
-```id="ex1"
-HELLO
+A simple substitution cipher where each letter is shifted by a fixed number.
+
+### 🔢 Example
+
+Plain Text: HELLO
 Shift: 3
-```
 
-Output:
+Encrypted: KHOOR
 
-```id="ex2"
+---
+
+## 🔐 Vigenère Cipher
+
+### 📌 Description
+
+A more secure cipher that uses a keyword to apply different shifts to each character.
+
+### 🔢 Example
+
+Plain Text: HELLO
+Key: KEY
+
+Encrypted: RIJVS
+
+---
+
+## 💡 Sample Output
+
+```id="output1"
+--- Cryptographic Ciphers ---
+1. Caesar Cipher
+2. Vigenere Cipher
+3. Exit
+
+Enter choice: 1
+Enter text: HELLO
+Enter shift: 3
+
 Encrypted: KHOOR
 Decrypted: HELLO
 ```
@@ -72,10 +107,18 @@ Decrypted: HELLO
 
 ## 🎯 Learning Outcomes
 
-* Understanding of encryption techniques
-* Java programming skills
-* Problem-solving using algorithms
+* Understanding of encryption and decryption techniques
+* Implementation of classical cryptographic algorithms
+* Hands-on practice with Java programming
 
 ---
 
+## ⚠️ Note
 
+These ciphers are for educational purposes only and are not secure for real-world applications.
+
+---
+
+## 👩‍💻 Author
+
+Your Name
